@@ -1,6 +1,4 @@
 <div align="center">
-
-<!-- ESPACIO PARA TU LOGO -->
 <br />
 <img src="https://aokaze.vercel.app/logo.svg" alt="Vistypo Logo" width="150" height="150" />
 <br />
