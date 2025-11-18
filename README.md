@@ -5,7 +5,7 @@
 <img src="https://aokaze.vercel.app/logo.svg" alt="Vistypo Logo" width="150" height="150" />
 <br />
 
-# 🎨 Vistypo
+# Vistypo
 
 ### Herramienta de visualización y prueba de tipografías en línea
 
