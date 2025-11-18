@@ -1,32 +1,43 @@
-<p align="center">
-  <img src="https://zebelek.vercel.app/_next/static/media/Logo.5457373c.svg" alt="App Icon" width="100">
-</p>
+# Astro Starter Kit: Minimal
 
-<h1 align="center">Vistypo</h1>
+```sh
+pnpm create astro@latest -- --template minimal
+```
 
-<p align="center">
-  Una plataforma web para visualizar y gestionar tipografías. ✨
-</p>
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![Node Version](https://img.shields.io/badge/Node-20.x-green.svg)
-![Next.JS Version](https://img.shields.io/badge/NextJS-15.x-blue.svg)
+## 🚀 Project Structure
 
-## Descripción
-🖋️ Vistypo es una plataforma web diseñada para que los usuarios puedan explorar, visualizar y gestionar diferentes tipografías. La aplicación permite a los usuarios previsualizar fuentes en tiempo real y organizarlas según sus necesidades.
+Inside of your Astro project, you'll see the following folders and files:
 
-## Funcionalidades
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-✨ Exploración de una amplia variedad de tipografías.  
-✨ Previsualización en tiempo real de las fuentes seleccionadas.  
-✨ Organización y gestión de tipografías favoritas.  
-✨ Interfaz de usuario intuitiva y moderna.  
-✨ Compatible con dispositivos móviles y de escritorio.  
-✨ No requiere instalación local; todo se maneja a través de la web.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-## Requisitos de Hardware
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-🖥️ **Recomendado**: Un equipo con conexión a internet para acceder a la plataforma web.
+Any static assets, like images, can be placed in the `public/` directory.
 
-## Contribuciones
+## 🧞 Commands
 
-Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, crea un Pull Request con tus sugerencias.
+All commands are run from the root of the project, from a terminal:
+
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `pnpm install`         | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

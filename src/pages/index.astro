@@ -1,0 +1,22 @@
+---
+import FileUploader from '@/components/FileUploader.astro';
+import FontList from '@/components/FontList.astro';
+import GithubBtn from '@/components/GithubBtn.astro';
+import TextControls from '@/components/TextControls.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+---
+
+<MainLayout
+	title="Vistypo - Herramienta de visualización y prueba de tipografías en línea"
+	description="Sube y prueba tus tipografías de manera rápida y sencilla con Vistypo, la herramienta en línea para desarrolladores y diseñadores."
+>
+	<main class="relative space-y-4 px-4 py-12 sm:px-6 lg:px-8">
+		<GithubBtn />
+		<FileUploader />
+		<TextControls />
+		<FontList />
+	</main>
+</MainLayout>
+<script>
+	import '@/scripts/fontManager';
+</script>

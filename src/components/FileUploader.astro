@@ -1,0 +1,127 @@
+---
+import { CloudArrowUpIcon } from '@/components/icons';
+---
+
+<section
+	class="mx-auto w-full max-w-7xl rounded-2xl border border-white/10 bg-white/5 p-6 shadow-lg backdrop-blur-xl"
+	role="region"
+	aria-labelledby="dropzone-heading"
+>
+	<h2 id="dropzone-heading" class="mb-4 text-lg font-semibold tracking-tight text-white">
+		Cargar fuente personalizada
+	</h2>
+
+	<div
+		id="drop-zone"
+		class="relative cursor-pointer rounded-2xl border-2 border-dashed border-white/25 bg-linear-to-br from-white/5 to-transparent p-8 transition-colors duration-300 hover:border-white/40 hover:bg-white/10"
+		role="button"
+		tabindex="0"
+		aria-label="Zona para arrastrar y soltar archivos de fuentes o hacer clic para seleccionar"
+		aria-describedby="dropzone-description"
+	>
+		{/* Input file oculto */}
+		<input
+			type="file"
+			id="font-file-input"
+			name="font-file"
+			accept=".ttf,.otf,.woff,.woff2"
+			class="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+			aria-label="Seleccionar archivo de fuente"
+			aria-describedby="supported-formats"
+		/>
+
+		{/* Contenido visual */}
+		<div class="pointer-events-none flex flex-col items-center justify-center gap-4 text-center">
+			<div class="rounded-full border border-white/20 bg-white/10 p-4 shadow-lg backdrop-blur-sm" aria-hidden="true">
+				<CloudArrowUpIcon class="h-12 w-12 text-white/60" />
+			</div>
+
+			<div class="space-y-2">
+				<p class="text-base font-semibold text-white">Arrastra tu archivo de fuente aquí</p>
+				<p id="dropzone-description" class="text-sm text-white/60">o haz clic para seleccionar desde tu dispositivo</p>
+			</div>
+
+			<div id="supported-formats" class="mt-2 flex flex-wrap items-center justify-center gap-2">
+				<span class="text-xs text-white/40">Formatos soportados:</span>
+				<span
+					class="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs text-white/60 shadow-sm backdrop-blur-sm"
+					>.ttf</span
+				>
+				<span
+					class="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs text-white/60 shadow-sm backdrop-blur-sm"
+					>.otf</span
+				>
+				<span
+					class="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs text-white/60 shadow-sm backdrop-blur-sm"
+					>.woff</span
+				>
+				<span
+					class="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-mono text-xs text-white/60 shadow-sm backdrop-blur-sm"
+					>.woff2</span
+				>
+			</div>
+		</div>
+
+		{/* Indicador visual de drag over */}
+		<div
+			id="drag-overlay"
+			class="pointer-events-none absolute inset-0 hidden items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm"
+			aria-hidden="true"
+		>
+			<div class="rounded-xl bg-white/20 p-6 shadow-2xl">
+				<CloudArrowUpIcon class="h-16 w-16 animate-bounce text-white" />
+				<p class="mt-2 text-lg font-semibold text-white">Suelta el archivo aquí</p>
+			</div>
+		</div>
+	</div>
+
+	{/* Información de archivo cargado */}
+	<div
+		id="file-info"
+		class="mt-4 hidden rounded-xl border border-emerald-400/20 bg-emerald-500/10 p-4 shadow-md backdrop-blur-sm"
+		role="status"
+		aria-live="polite"
+		aria-atomic="true"
+	>
+		<div class="flex items-start gap-3">
+			<svg
+				class="h-5 w-5 shrink-0 text-emerald-400"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				aria-hidden="true"
+			>
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+			</svg>
+			<div class="min-w-0 flex-1">
+				<p class="text-sm font-semibold text-emerald-300">Fuente agregada exitosamente</p>
+				<p class="mt-1 text-xs text-white/60">La fuente se ha agregado a la lista de fuentes disponibles</p>
+			</div>
+		</div>
+	</div>
+
+	{/* Mensaje de error */}
+	<div
+		id="error-message"
+		class="mt-4 hidden rounded-xl border border-red-400/20 bg-red-500/10 p-4 shadow-md backdrop-blur-sm"
+		role="alert"
+		aria-live="assertive"
+	>
+		<div class="flex items-start gap-3">
+			<svg
+				class="h-5 w-5 shrink-0 text-red-400"
+				fill="none"
+				stroke="currentColor"
+				viewBox="0 0 24 24"
+				aria-hidden="true"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+			</svg>
+			<p id="error-text" class="text-sm text-red-300"></p>
+		</div>
+	</div>
+</section>

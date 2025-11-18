@@ -1,0 +1,103 @@
+---
+import Footer from '@/components/ui/Footer.astro';
+import Header from '@/components/ui/Header.astro';
+import '@/styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const { title, description, image = '/meta/og-banner.png' } = Astro.props;
+
+const ogTitle = 'Vistypo - Herramienta de visualización y prueba de tipografías en línea';
+const ogImage = new URL(image, Astro.site);
+---
+
+<!doctype html>
+<html lang="es" dir="ltr">
+	<head>
+		{/* Metadatos esenciales */}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+
+		{/* Tema y apariencia */}
+		<meta name="theme-color" content="#2b0707" />
+		<meta name="color-scheme" content="dark light" />
+
+		{/* SEO Principal */}
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content="Aokaze" />
+		<meta name="publisher" content="Vistypo" />
+		<meta
+			name="keywords"
+			content="tipografías, fuentes, visualización de fuentes, prueba de fuentes, herramienta en línea, desarrollador web, diseñador gráfico, Aokaze, Vistypo"
+		/>
+		<link rel="canonical" href={canonicalURL} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+
+		<link rel="image_src" href={ogImage.toString()} />
+
+		{/* Favicon */}
+		<link rel="icon" type="image/png" href="/meta/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/meta/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Aokaze" />
+		<link rel="manifest" href="/site.webmanifest" />
+
+		{/* Open Graph / Facebook */}
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={ogTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:alt" content={`Imagen de ${ogTitle}`} />
+		<meta property="og:site_name" content={ogTitle} />
+		<meta property="og:locale" content="es_ES" />
+
+		{/* Twitter */}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={ogTitle} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+		<meta name="twitter:image:alt" content={`Imagen de ${ogTitle}`} />
+
+		{/* Robots */}
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+
+		{/* Schema.org JSON-LD */}
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify({
+				'@context': 'https://schema.org',
+				'@type': 'WebSite',
+				name: 'Vistypo',
+				url: '${Astro.site}',
+				author: {
+					'@type': 'Person',
+					name: 'Aokaze',
+				},
+			})}
+		/>
+	</head>
+	<body
+		class="min-h-screen w-full"
+		itemscope
+		itemtype="http://schema.org/WebPage"
+		style={{
+			background: 'radial-gradient(125% 125% at 50% 100%, #000000 40%, #2b0707 100%) fixed',
+		}}
+	>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>

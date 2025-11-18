@@ -1,0 +1,56 @@
+{
+  "name": "Vistypo",
+  "short_name": "Vistypo",
+  "description": "Vistypo es una herramienta en línea para visualizar y probar tipografías de manera rápida y sencilla.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#2b0707",
+  "categories": ["productivity", "utilities", "design"],
+  "lang": "es",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/meta/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/meta/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/meta/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/meta/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/meta/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Portfolio de Escritorio"
+    },
+    {
+      "src": "/meta/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "label": "Vista Móvil"
+    }
+  ]
+}
