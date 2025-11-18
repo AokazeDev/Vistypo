@@ -1,0 +1,85 @@
+---
+import { defaultFonts, fontCategories } from '@/data/fonts';
+---
+
+<section
+	class="mx-auto w-full max-w-7xl rounded-2xl border border-white/15 bg-white/7 p-6 shadow-lg backdrop-blur-xl"
+	role="region"
+	aria-labelledby="font-list-heading"
+>
+	<div class="mb-6 space-y-4">
+		<h2 id="font-list-heading" class="text-lg font-semibold tracking-tight text-white">Fuentes disponibles</h2>
+
+		{/* Filtro por categoría */}
+		<div class="flex items-center gap-3">
+			<label for="category-filter" class="text-sm font-medium text-white/80"> Categoría: </label>
+			<select
+				id="category-filter"
+				name="category"
+				class="flex-1 rounded-xl border border-white/15 bg-white/6 px-4 py-2 text-sm text-white shadow-inner backdrop-blur-md transition-all duration-300 outline-none focus:border-white/35 focus:bg-white/10 focus:shadow-lg focus:ring-2 focus:ring-white/15"
+				aria-label="Filtrar fuentes por categoría"
+			>
+				{
+					fontCategories.map((category) => (
+						<option value={category.value} class="bg-neutral-900">
+							{category.label}
+						</option>
+					))
+				}
+			</select>
+		</div>
+
+		{/* Contador de fuentes */}
+		<div class="text-sm text-white/60" role="status" aria-live="polite" aria-atomic="true">
+			Mostrando <span id="font-count" class="font-semibold text-white">{defaultFonts.length}</span> fuentes
+		</div>
+	</div>
+
+	{/* Lista de fuentes */}
+	<div class="space-y-4" id="font-list-container" role="list" aria-label="Lista de fuentes disponibles">
+		{
+			defaultFonts.map((font, index) => (
+				<article
+					class="font-item group relative rounded-2xl border border-white/15 bg-white/8 p-4 shadow-md backdrop-blur-xl"
+					data-font-family={font.family}
+					data-font-name={font.name}
+					data-font-category={font.category}
+					data-is-custom="false"
+					role="listitem"
+					aria-label={`Fuente ${font.name}, categoría ${font.category}`}
+				>
+					<div class="flex items-start justify-between gap-4">
+						<div class="min-w-0 flex-1 space-y-2">
+							<div class="flex items-center gap-2">
+								<h3 class="font-semibold text-white">{font.name}</h3>
+								<span
+									class="rounded-full border border-white/20 bg-white/12 px-3 py-1 text-xs text-white/60 shadow-sm backdrop-blur-sm"
+									aria-label={`Categoría: ${font.category}`}
+								>
+									{font.category}
+								</span>
+							</div>
+							<p
+								class="font-preview-text text-sm wrap-break-word text-white/70 transition-all duration-200 group-hover:text-white"
+								style="font-family: ${font.family}; font-size: 28px; font-weight: 400; font-style: normal; text-transform: none; word-wrap: break-word;"
+								aria-label="Texto de ejemplo con esta fuente"
+							>
+								El veloz murciélago hindú comía feliz cardillo y kiwi.
+							</p>{' '}
+							<p class="font-mono text-xs text-white/40">{font.family}</p>
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</div>
+
+	{/* Mensaje cuando no hay resultados */}
+	<div
+		id="no-fonts-message"
+		class="mt-4 hidden rounded-xl border border-white/10 bg-white/5 p-8 text-center shadow-md backdrop-blur-sm"
+		role="status"
+	>
+		<p class="text-white/60">No se encontraron fuentes para esta categoría</p>
+	</div>
+</section>
